@@ -1,0 +1,121 @@
+#asd {
+  font-size: 50px;
+}
+
+.gallery {
+  padding-top: 17.92rem;
+  padding-inline: 32px;
+  margin: 0 auto;
+  max-width: 1280px;
+  display: grid;
+  grid-gap: 32px 16px;
+  justify-content: center;
+  align-items: center;
+  // background-color: aquamarine;
+  margin-bottom: 50px;
+  @media screen and (min-width: 260px) {
+    padding-top: 15rem;
+  }
+  @media screen and (min-width: 350px) {
+    padding-top: 16.46rem;
+  }
+  @media screen and (min-width: 768px) {
+    padding-top: 17.92rem;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 17.92rem;
+  }
+
+  &__movie-container {
+    transition: transform 250ms ease-in-out;
+    // width: 280px;
+    height: 100%;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    //   background-color: red;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.01);
+      border-radius: 5px;
+    }
+  }
+  &__movie-poster {
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    // height: 402px;
+    border-radius: 5px;
+    // cursor: pointer;
+    // background-color: red;
+  }
+
+  &__movie-title {
+    color: #000;
+
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+
+    padding-top: 12px;
+  }
+
+  &__movie-genres {
+    color: #ff6b08;
+    // font-family: 'Roboto';
+    // font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    // line-height: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .gallery {
+    // max-width: 768px;
+    // background-color: red;
+    grid-template-columns: repeat(2, 1fr);
+
+    flex-direction: row;
+
+    // justify-content: center;
+    // justify-content: flex-start;
+    // align-items: center;
+    // flex-wrap: wrap;
+
+    // &__movie-container {
+    // width: 336px;
+    // height: 495px;
+    // background-color: red;
+    // }
+
+    &__movie-poster {
+      object-fit: cover;
+      display: block;
+      // width: 100%;
+      // height: 455px;
+      border-radius: 5px;
+      // cursor: pointer;
+      // background-color: red;
+    }
+  }
+}
+
+@media screen and (min-width: 1180px) {
+  .gallery {
+    // max-width: 1280px;
+    grid-template-columns: repeat(3, 1fr);
+    &__movie-title {
+      // font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    // .gallery__movie-container {
+    // max-width: calc((100% / 3) - 16px);
+    // width: 395px;
+    // height: 634px;
+    // background-color: red;
+    // }
+  }
+}

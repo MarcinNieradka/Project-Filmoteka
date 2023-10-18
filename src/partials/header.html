@@ -1,0 +1,92 @@
+<header class="header">
+  <div class="header-wrapper">
+    <div class="header__container">
+      <div class="header__box">
+        <div class="svg__wrapper">
+          <a href="./index.html">
+            <svg class="movie__svg">
+              <use href="../src/images/svg/film.svg#film"></use>
+            </svg>
+          </a>
+        </div>
+        <a class="header__box-link" href="index.html">Filmoteka</a>
+      </div>
+      <nav class="navigation">
+        <ul class="navigation__list">
+          <li>
+            <a
+              id="home-link"
+              class="navigation__link navigation__link--home"
+              href="../src/index.html"
+              >home</a
+            >
+          </li>
+          <li>
+            <a id="lib-link" class="navigation__link navigation__link" href="./my-library.html"
+              >my library</a
+            >
+          </li>
+          <li>
+            <div class="notLoggedIn" id="not-logged-in">
+              <button data-open-modal class="login__button" aria-label="User sign-in">
+                <i class="fa-solid fa-user login__button-icon"></i>
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="loggedIn" id="logged-in">
+              <button id="logout__btn" class="login__button" aria-label="User logout">
+                <i class="fa-solid fa-right-from-bracket login__button-icon"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="btn__wrapper btn__wrapper-form">
+      <form class="input__wrapper">
+        <label for="search-box" class="label__movie"></label>
+        <input
+          class="input__search-move"
+          type="text"
+          id="search-box"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search movies..."
+        />
+        <button type="submit" class="btn__search">
+          <i id="searchIcon" class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <div class="search-error"></div>
+    </div>
+    <picture>
+      <source
+        media="(min-width: 1280px)"
+        srcset="
+          ./images/header-1/tekstura-2-1280px.png  1x,
+          ./images/header-1/tekstura-2-1280@2x.png 2x,
+          ./images/header-1/tekstura-2-1280@3x.png 3x
+        "
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="
+          ./images/header-1/Frame786.png    1x,
+          ./images/header-1/Frame768@2x.png 2x,
+          ./images/header-1/Frame768@3x.png 3x
+        "
+      />
+      <source
+        srcset="
+          ./images/header-1/Frame320.png    1x,
+          ./images/header-1/Frame320@2x.png 2x,
+          ./images/header-1/Frame320@3x.png 3x
+        "
+        alt="header-background"
+      />
+    </picture>
+  </div>
+  <button class="button-watched watched-hidden"></button>
+  <button class="button-queue queue-hidden"></button>
+</header>

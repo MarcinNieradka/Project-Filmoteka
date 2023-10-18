@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><link rel="stylesheet" href="/my-library.f7626f62.css"><script src="/index.903fea1f.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmoteka</title>
+    <link rel="shortcut icon" href="/film.9c6eee53.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="loader">
+  <div class="container">
+    <img class="projector" src="/projector.a4f6fae5.svg" width="100" height="70">
+    <img src="/bobbin.345d4f4a.svg" width="30" height="30" class="bobbin-little">
+    <img src="/bobbin.345d4f4a.svg" width="40" height="40" class="bobbin-big">
+  </div>
+</div>
+
+
+    <header class="header">
+  <div class="header-wrapper">
+    <div class="header__container">
+      <div class="header__box">
+        <div class="svg__wrapper">
+          <a href="/index.html">
+            <svg class="movie__svg">
+              <use href="/film.9c6eee53.svg#film"></use>
+            </svg>
+          </a>
+        </div>
+        <a class="header__box-link" href="/index.html">Filmoteka</a>
+      </div>
+      <nav class="navigation">
+        <ul class="navigation__list">
+          <li>
+            <a id="home-link" class="navigation__link navigation__link--home" href="/index.html">home</a>
+          </li>
+          <li>
+            <a id="lib-link" class="navigation__link navigation__link" href="/my-library.html">my library</a>
+          </li>
+          <li>
+            <div class="notLoggedIn" id="not-logged-in">
+              <button data-open-modal="" class="login__button" aria-label="User sign-in">
+                <i class="fa-solid fa-user login__button-icon"></i>
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="loggedIn" id="logged-in">
+              <button id="logout__btn" class="login__button" aria-label="User logout">
+                <i class="fa-solid fa-right-from-bracket login__button-icon"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="btn__wrapper btn__wrapper-form">
+      <form class="input__wrapper">
+        <label for="search-box" class="label__movie"></label>
+        <input class="input__search-move" type="text" id="search-box" name="searchQuery" autocomplete="off" placeholder="Search movies...">
+        <button type="submit" class="btn__search">
+          <i id="searchIcon" class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <div class="search-error"></div>
+    </div>
+    <picture>
+      <source media="(min-width: 1280px)" srcset="/tekstura-2-1280px.cfa52165.png 1x, /tekstura-2-1280@2x.27cc8210.png 2x, /tekstura-2-1280@3x.35a15a3b.png 3x">
+      <source media="(min-width: 768px)" srcset="/Frame786.ca81621b.png 1x, /Frame768@2x.a3b53456.png 2x, /Frame768@3x.19f9e587.png 3x">
+      <source srcset="/Frame320.e40c210b.png 1x, /Frame320@2x.207df00c.png 2x, /Frame320@3x.aafe7dc1.png 3x" alt="header-background">
+    </picture>
+  </div>
+  <button class="button-watched watched-hidden"></button>
+  <button class="button-queue queue-hidden"></button>
+</header>
+
+
+    <div id="gallery" class="gallery"></div>
+<div id="observer-gallery"></div>
+
+
+    <footer class="footer">
+  <div class="footer-wrapper">
+    <div><p class="list__items">© 2020 | All Rights Reserved |</p></div>
+    <div class="list-wrapper">
+      <ul class="footer__list">
+        <li class="list__items">Developed with</li>
+        <li class="list__items">
+          <div class="svg__wrapper">
+            <svg class="hearth__svg">
+              <use href="/favorite.cf60b7c4.svg#favorite"></use>
+            </svg>
+          </div>
+        </li>
+        <li class="list__items"><a href="#" id="modal-link">IT Students</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+    <div id="modal" class="backdrop-modal is-hidden-modal"></div>
+
+
+<!-- sounds effects -->
+<audio id="btn-click-sound" src="/btn-click-2.a83388ce.wav"></audio>
+
+
+    <dialog data-modal="" id="" class="login__modal">
+  <div class="modal__content">
+    <p class="modal-text">Log in</p>
+    <button data-close-modal="" class="login__close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div id="not-logged-in" class="modal__form">
+
+<!--   <form id="login_form" class="modal__login">
+    <input type="text" id="email" placeholder="email" />
+    <input type="password" id="password" placeholder="password" />
+    <button id="loggin__btn" type="submit">Log in</button>
+    <button id="sign__btn" type="submit">Sign in</button> -->
+
+  <form class="modal__login">
+    <label class="input-label" for="email">User e-mail</label>
+    <div class="input-container">
+    <input class="modal__input-email" type="text" name="email" id="email" autocomplete="username">
+    <i class="fa-solid fa-envelope modal__input-icon"></i>
+    </div>
+    <label class="input-label" for="password">Password</label>
+    <div class="input-container">
+    <input class="modal__input-password" type="password" name="password" id="password" autocomplete="current-password">
+    <i class="fa-solid fa-lock modal__input-icon"></i>
+    </div>
+    <button class="modal-button" id="loggin__btn" type="submit">Log in</button>
+
+  </form>
+  <p class="firebase">Powered by &nbsp;<img src="/logo-firebase-min.c153a6f7.png" width="50"></p>
+  </div>
+</dialog>
+
+
+    <div id="modal-team" class="modal-team">
+  <!-- CLOSE BTN BEGIN -->
+  <button id="modal-team-close" type="button" class="button-modal-close">
+    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
+      <path d="M11 1.10786L9.89214 0L5.5 4.39214L1.10786 0L0 1.10786L4.39214 5.5L0 9.89214L1.10786 11L5.5 6.60786L9.89214 11L11 9.89214L6.60786 5.5L11 1.10786Z" fill="black"></path>
+    </svg>
+  </button>
+  <!-- CLOSE BTN END -->
+
+  <h2 class="modal-team-title">Our team</h2>
+
+  <div class="test_wrap">
+    <div id="gallery" class="gallery-team">
+      <!-- GALLERY TEAM BEGIN -->
+      <!-- next member -->
+      <figure class="gallery-team__movie-container">
+        <img class="gallery-team__movie-poster" src="/wiktor-lewandowski.4fbaac63.jpg" alt="member of team first" width="350" height="auto">
+        <h3 class="gallery-team__movie-title">Wiktor Lewandowski</h3>
+        <p class="gallery-team__movie-genres">
+          Team leader<br><i class="fa-sharp fa-solid fa-video"></i> Favourites movies: Bladerunner
+          2049, Inception, Everything Everywhere All At Once, Parasite, Au Poste!, KungFu Hustle
+        </p>
+      </figure>
+      <!-- next member -->
+      <figure class="gallery-team__movie-container">
+        <img class="gallery-team__movie-poster" src="/Amadeusz_Rolecki.569deadb.jpg" alt="member of team second" width="350" height="auto">
+        <h3 class="gallery-team__movie-title">Amadeusz Rolecki</h3>
+        <p class="gallery-team__movie-genres">
+          Scrum master <br><i class="fa-sharp fa-solid fa-video"></i> Favourites movies: Star
+          Wars, Pulp Fiction, Blade Runner,MCU, No Country for Old Man
+        </p>
+      </figure>
+      <!-- next member -->
+      <figure class="gallery-team__movie-container">
+        <img class="gallery-team__movie-poster" src="/Zdjęcie_Anastazja.0b23ce86.jpg" alt="member of team third" width="350" height="auto">
+        <h3 class="gallery-team__movie-title">Anastazja Nikola Bokun</h3>
+        <p class="gallery-team__movie-genres">
+          Software Developer <br><i class="fa-sharp fa-solid fa-video"></i> Favourites movies:
+          Powrót Do Przyszłości, Rocky, Titanic, Some Kind Of Monster
+        </p>
+      </figure>
+      <!-- next member -->
+      <figure class="gallery-team__movie-container">
+        <img class="gallery-team__movie-poster" src="/Adrian.3ea07ae7.jpg" alt="member of team fourth" width="350" height="auto">
+        <h3 class="gallery-team__movie-title">Adrian Miarczyński</h3>
+        <p class="gallery-team__movie-genres">
+          Fullstack Developer <br><i class="fa-sharp fa-solid fa-video"></i> Favourites
+          movies:Interstellar, Forrest Gump, The Lord of the Rings, Gladiator, Strzelec
+        </p>
+      </figure>
+      <!-- next member -->
+      <figure class="gallery-team__movie-container">
+        <img class="gallery-team__movie-poster" src="/gms.2a5a45aa.jpg" alt="member of team fifth" width="350" height="auto">
+        <h3 class="gallery-team__movie-title">Marcin Nieradka</h3>
+        <p class="gallery-team__movie-genres">
+          Fullstack Developer <br><i class="fa-sharp fa-solid fa-video"></i> Favourites
+          movies:Whiplash, The Shawshank Redemption, Tropic Thunder, Forrest Gump, The Fly (1986)
+        </p>
+      </figure>
+      <!-- next member -->
+      <figure class="gallery-team__movie-container">
+        <img class="gallery-team__movie-poster" src="/Stanisław_Socha.8487308f.jpg" alt="member of team sixth" width="350" height="auto">
+        <h3 class="gallery-team__movie-title">Stanisław Socha</h3>
+        <p class="gallery-team__movie-genres">
+          Fullstack Developer <br><i class="fa-sharp fa-solid fa-video"></i> Favourites movies:
+          Ojciec Chrzestny, Donnie Brasco, Człowiek z blizną
+        </p>
+      </figure>
+      <!-- next member -->
+      <figure class="gallery-team__movie-container">
+        <img class="gallery-team__movie-poster" src="/photo.88fe8f90.jpg" alt="member of team" width="350" height="auto">
+        <h3 class="gallery-team__movie-title">Wojciech Dutkiewicz</h3>
+        <p class="gallery-team__movie-genres">
+          Fullstack Developer <br><i class="fa-sharp fa-solid fa-video"></i> Favourites movies:
+          Ojciec Chrzestny, Władca Pierścieni, Dawno temu w Ameryce
+        </p>
+      </figure>
+      <!-- GALLERY TEAM END -->
+    </div>
+  </div>
+</div>
+
+
+    <!-- Skrypt jest na samym dole kodu. On juz ma w sobie podłączony SAAS plik. -->
+    <script src="/index.975ef6c8.js" defer=""></script>
+  </body>
+</html>
