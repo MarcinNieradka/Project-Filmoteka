@@ -2,4 +2,4 @@
 
 ## Movie DB API
 
-https://marcinnieradka.github.io/projekt-grupa-3/
+https://marcinnieradka.github.io/Project-Filmoteka/
